@@ -1,38 +1,32 @@
 package com.github.aimind.exponentialschedule_api;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import com.github.aimind.exponentialschedule_api.core.Constraint;
+import com.github.aimind.exponentialschedule_api.core.ElementComponent;
+import com.github.aimind.exponentialschedule_api.core.HourElement;
+import com.github.aimind.exponentialschedule_api.enums.ConstraintTypeEnum;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+	public static void main(String[] args) {
+		
+		Constraint constraint1 = new Constraint(5, 10, ConstraintTypeEnum.CONSECUTIVE_HOURS);
+		
+		ElementComponent element1 = new ElementComponent(1, "Teacher 1");
+		element1.addConstraint(constraint1);
+		
+		HourElement hourElement1 = new HourElement(1, "Physics subject");
+		hourElement1.addComponent(element1);
+		
+		Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "test", "test", "test", 10, 5);
+		input.addHourDistribution(8);
+		input.addHourElement(hourElement1);
+		
+		try {
+			Output schedules = input.GenerateSchedule();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 }

@@ -1,5 +1,6 @@
 package com.github.aimind.exponentialschedule_api.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HourElement {
@@ -45,6 +46,7 @@ public class HourElement {
 	public HourElement(int id, String name){
 		this.id = id;
 		this.name = name;
+		this.components = new ArrayList<ElementComponent>();
 	}
 	
 }
