@@ -1,7 +1,13 @@
 package com.github.aimind.exponentialschedule_api;
 
 import com.github.aimind.exponentialschedule_api.core.*;
+import com.github.aimind.exponentialschedule_api.ws.*;
+
+import java.net.URL;
+import javax.xml.ws.Service;
 import java.util.List;
+
+import javax.xml.namespace.QName;
 
 public class Input {
 
@@ -143,6 +149,14 @@ public class Input {
 			throw new Exception("The maxConstraintPriorityValue and the numberOfSolutions must be greater than 0");
 		}
 		
+		//Creating the soap client
+		URL url = new URL(this.url + "?wsdl");
+		QName qname = new QName(this.url, "ExponentialScheduleWS");
+		Service service = Service.create(url, qname);
+		ExponentialScheduleWS exponentialScheduleWS = service.getPort(ExponentialScheduleWS.class);
+		
+		//Calling the service
+		output = exponentialScheduleWS.GenerateNewSchedule(this);
 		
 		return output;
 	}
