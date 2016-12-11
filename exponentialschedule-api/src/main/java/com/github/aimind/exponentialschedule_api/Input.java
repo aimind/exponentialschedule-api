@@ -13,6 +13,7 @@ public class Input {
 	private int maxConstraintPriorityValue;
 	private int numberOfSolutions;
 	private List<Integer> hoursDistribution;
+	private int numberOfHours;
 	private List<HourElement> hourElements; 
 	
 	
@@ -66,6 +67,41 @@ public class Input {
 		this.hourElements = hourElements;
 	}
 	
+	/**
+	 * Adds a number of hours in the distribution
+	 * @param hours to add in the distribution
+	 */
+	public void addHourDistribution(int hours){
+		this.hoursDistribution.add(hours);
+	}
+	
+	/**
+	 * Adds an hour element in the list of elements
+	 * @param hourElement
+	 */
+	public void addHourElement(HourElement hourElement){
+		this.hourElements.add(hourElement);
+	}
+	
+	/**
+	 * Constructor
+	 * @param url of the web service
+	 * @param user of the web service
+	 * @param password of the web service
+	 * @param iv of the user
+	 * @param maxPriorityValue the maximum priority value of the constraints
+	 * @param numberOfSolutions number of solutions to be returned
+	 */
+	public Input(String url, String user, String password, String iv, int maxPriorityValue, int numberOfSolutions){
+		
+		//Setting the attributes
+		this.url = url;
+		this.user = user;
+		this.password = password;
+		this.iv = iv;
+		this.maxConstraintPriorityValue = maxPriorityValue;
+		this.numberOfSolutions = numberOfSolutions;
+	}
 	
 	
 	/**
@@ -84,6 +120,32 @@ public class Input {
 	}
 	
 	
+	/**
+	 * Function to generate the schedule via the web service
+	 * @return the web service output
+	 * @throws Exception 
+	 */
+	public Output GenerateSchedule() throws Exception{
+		
+		//Creates a new output
+		Output output = new Output();
+		
+		//Calculates the number of hours
+		this.numberOfHours = this.NumberOfHoursCalculation();
+		
+		//Checking the mandatory elements
+		if(this.numberOfHours < 1 || this.hourElements.size() < 1){
+			throw new Exception("The hours distribution and the hour elements are mandatory");
+		}
+		
+		//Checking the mandatory values
+		if(this.maxConstraintPriorityValue < 1 || this.numberOfSolutions < 1){
+			throw new Exception("The maxConstraintPriorityValue and the numberOfSolutions must be greater than 0");
+		}
+		
+		
+		return output;
+	}
 	
 	
 }

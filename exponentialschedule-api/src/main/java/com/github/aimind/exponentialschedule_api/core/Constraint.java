@@ -28,5 +28,17 @@ public class Constraint {
 	public void setType(ConstraintTypeEnum type) {
 		this.type = type;
 	}
+	
+	/**
+	 * Constructor
+	 * @param priority of the constraint
+	 * @param value of the constraint (the number of hours, etc.)
+	 * @param type of the constraint (max number of hours, min number of hours, etc.)
+	 */
+	public Constraint(int priority, int value, ConstraintTypeEnum type){
+		this.priority = priority;
+		this.value = value;
+		this.type = type;
+	}
 
 }

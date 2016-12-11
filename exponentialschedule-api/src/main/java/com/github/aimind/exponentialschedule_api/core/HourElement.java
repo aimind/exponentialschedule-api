@@ -29,4 +29,22 @@ public class HourElement {
 		this.components = components;
 	}
 	
+	/**
+	 * Adds a component to the element component list
+	 * @param component
+	 */
+	public void addComponent(ElementComponent component){
+		this.components.add(component);
+	}
+	
+	/**
+	 * Constructor
+	 * @param id of the component
+	 * @param name of the component
+	 */
+	public HourElement(int id, String name){
+		this.id = id;
+		this.name = name;
+	}
+	
 }
