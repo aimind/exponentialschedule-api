@@ -28,5 +28,24 @@ public class ElementComponent {
 	public void setConstraints(List<Constraint> constraints) {
 		this.constraints = constraints;
 	}
+	
+	/**
+	 * Adds a constraint to the list
+	 * @param constraint
+	 */
+	public void addConstraint(Constraint constraint){
+		this.constraints.add(constraint);
+	}
+	
+	
+	/**
+	 * Constructor
+	 * @param id of the element
+	 * @param name of the element
+	 */
+	public ElementComponent(int id, String name){
+		this.id = id;
+		this.name = name;
+	}
 
 }
