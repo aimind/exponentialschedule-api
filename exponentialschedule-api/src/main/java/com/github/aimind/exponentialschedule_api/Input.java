@@ -2,9 +2,12 @@ package com.github.aimind.exponentialschedule_api;
 
 import com.github.aimind.exponentialschedule_api.core.*;
 import com.github.aimind.exponentialschedule_api.ws.*;
+import com.github.aimind.exponentialschedule_api.services.*;
 
 import java.net.URL;
 import javax.xml.ws.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
@@ -15,6 +18,7 @@ public class Input {
 	private String url;
 	private String user;
 	private String password;
+	private String passphrase;
 	private String iv;
 	private int maxConstraintPriorityValue;
 	private int numberOfSolutions;
@@ -94,19 +98,32 @@ public class Input {
 	 * @param url of the web service
 	 * @param user of the web service
 	 * @param password of the web service
-	 * @param iv of the user
+	 * @param passphrase of the user
 	 * @param maxPriorityValue the maximum priority value of the constraints
 	 * @param numberOfSolutions number of solutions to be returned
+	 * @throws Exception 
 	 */
-	public Input(String url, String user, String password, String iv, int maxPriorityValue, int numberOfSolutions){
+	public Input(String url, String user, String password, String passphrase, int maxPriorityValue, int numberOfSolutions) throws Exception{
 		
 		//Setting the attributes
 		this.url = url;
 		this.user = user;
-		this.password = password;
-		this.iv = iv;
+		this.passphrase = passphrase;
 		this.maxConstraintPriorityValue = maxPriorityValue;
 		this.numberOfSolutions = numberOfSolutions;
+		
+		//Encrypt the password
+		List<String> security = new ArrayList<String>();
+		try {
+			security = SecurityService.encryptAESMessage(password, passphrase);
+			
+			//Sets the password encrypted and the iv
+			this.password = security.get(0);
+			this.iv = security.get(1);
+			
+		} catch (Exception e) {
+			throw e;
+		}
 	}
 	
 	
