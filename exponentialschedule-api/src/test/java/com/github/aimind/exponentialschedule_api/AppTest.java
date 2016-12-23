@@ -17,11 +17,11 @@ public class AppTest {
 		HourElement hourElement1 = new HourElement(1, "Physics subject");
 		hourElement1.addComponent(element1);
 		
-		Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "test", "test", "test", 10, 5);
-		input.addHourDistribution(8);
-		input.addHourElement(hourElement1);
+		try{
+			Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "test", "test", "test", 10, 5);
+			input.addHourDistribution(8);
+			input.addHourElement(hourElement1);
 		
-		try {
 			Output schedules = input.GenerateSchedule();
 		} catch (Exception e) {
 			e.printStackTrace();
