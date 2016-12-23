@@ -170,7 +170,7 @@ public class Input {
 		
 		//Creating the soap client
 		URL url = new URL(this.url + "?wsdl");
-		QName qname = new QName(this.url, "ExponentialScheduleWS");
+		QName qname = new QName("http://webservices.exponentialschedule/", "ExponentialScheduleWSService");
 		Service service = Service.create(url, qname);
 		ExponentialScheduleWS exponentialScheduleWS = service.getPort(ExponentialScheduleWS.class);
 		
