@@ -18,7 +18,7 @@ public class AppTest {
 		hourElement1.addComponent(element1);
 		
 		try{
-			Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "test", "test", "test", 10, 5);
+			Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "Test", "ffe24c9204d65518429aa701f3a6bdc5", "test", 10, 5);
 			input.addHourDistribution(8);
 			input.addHourElement(hourElement1);
 		

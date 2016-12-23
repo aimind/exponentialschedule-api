@@ -18,7 +18,6 @@ public class Input {
 	private String url;
 	private String user;
 	private String password;
-	private String passphrase;
 	private String iv;
 	private int maxConstraintPriorityValue;
 	private int numberOfSolutions;
@@ -105,10 +104,13 @@ public class Input {
 	 */
 	public Input(String url, String user, String password, String passphrase, int maxPriorityValue, int numberOfSolutions) throws Exception{
 		
+		//Initializing the list attributes
+		this.hourElements = new ArrayList<HourElement>();
+		this.hoursDistribution = new ArrayList<Integer>();
+		
 		//Setting the attributes
 		this.url = url;
 		this.user = user;
-		this.passphrase = passphrase;
 		this.maxConstraintPriorityValue = maxPriorityValue;
 		this.numberOfSolutions = numberOfSolutions;
 		
