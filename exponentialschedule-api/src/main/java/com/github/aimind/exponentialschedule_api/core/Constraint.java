@@ -1,7 +1,11 @@
 package com.github.aimind.exponentialschedule_api.core;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 import com.github.aimind.exponentialschedule_api.enums.ConstraintTypeEnum;
 
+@XmlType(name="Constraint")
 public class Constraint {
 	
 	//Attributes
@@ -10,18 +14,23 @@ public class Constraint {
 	private ConstraintTypeEnum type;
 	
 	//Properties
+	@XmlElement(name="constraintPriority")
 	public int getPriority() {
 		return priority;
 	}
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
+	
+	@XmlElement(name="value")
 	public int getValue() {
 		return value;
 	}
 	public void setValue(int value) {
 		this.value = value;
 	}
+	
+	@XmlElement(name="constraintType")
 	public ConstraintTypeEnum getType() {
 		return type;
 	}

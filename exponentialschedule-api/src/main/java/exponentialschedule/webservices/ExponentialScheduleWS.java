@@ -1,11 +1,11 @@
-package com.github.aimind.exponentialschedule_api.ws;
+package exponentialschedule.webservices;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
 
-import com.github.aimind.exponentialschedule_api.*;
+import exponentialschedule.webservices.interfaces.*;
 
 @WebService
 @SOAPBinding(style = Style.RPC)

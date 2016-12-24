@@ -3,6 +3,10 @@ package com.github.aimind.exponentialschedule_api.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name="GeneComponent")
 public class ElementComponent {
 	
 	//Attributes
@@ -11,18 +15,23 @@ public class ElementComponent {
 	private List<Constraint> constraints;
 	
 	//Properties
+	@XmlElement(name="id")
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@XmlElement(name="name")
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@XmlElement(name="constraints")
 	public List<Constraint> getConstraints() {
 		return constraints;
 	}

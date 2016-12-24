@@ -1,8 +1,9 @@
-package com.github.aimind.exponentialschedule_api;
+package exponentialschedule.webservices.interfaces;
 
 import com.github.aimind.exponentialschedule_api.core.*;
-import com.github.aimind.exponentialschedule_api.ws.*;
 import com.github.aimind.exponentialschedule_api.services.*;
+
+import exponentialschedule.webservices.*;
 
 import java.net.URL;
 import javax.xml.ws.Service;
@@ -10,8 +11,13 @@ import javax.xml.ws.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.namespace.QName;
 
+@XmlRootElement
+@XmlType(name="Input")
 public class Input {
 
 	//Attributes
@@ -33,42 +39,64 @@ public class Input {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
+	@XmlElement(name="user")
 	public String getUser() {
 		return user;
 	}
 	public void setUser(String user) {
 		this.user = user;
 	}
+	
+	@XmlElement(name="password")
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@XmlElement(name="iv")
 	public String getIv() {
 		return iv;
 	}
 	public void setIv(String iv) {
 		this.iv = iv;
 	}
+	
+	@XmlElement(name="maxPriorityValue")
 	public int getMaxConstraintPriorityValue() {
 		return maxConstraintPriorityValue;
 	}
 	public void setMaxConstraintPriorityValue(int maxConstraintPriorityValue) {
 		this.maxConstraintPriorityValue = maxConstraintPriorityValue;
 	}
+	
+	@XmlElement(name="numberOfGenes")
+	public int getNumberOfHours(){
+		return numberOfHours;
+	}
+	public void setNumberOfHours(int numberOfHours){
+		this.numberOfHours = numberOfHours;
+	}
+	
+	@XmlElement(name="numberOfSolutions")
 	public int getNumberOfSolutions() {
 		return numberOfSolutions;
 	}
 	public void setNumberOfSolutions(int numberOfSolutions) {
 		this.numberOfSolutions = numberOfSolutions;
 	}
+	
+	@XmlElement(name="genesDistribution")
 	public List<Integer> getHoursDistribution() {
 		return hoursDistribution;
 	}
 	public void setHoursDistribution(List<Integer> hoursDistribution) {
 		this.hoursDistribution = hoursDistribution;
 	}
+	
+	@XmlElement(name="templateGenes")
 	public List<HourElement> getHourElements(){
 		return hourElements;
 	}
@@ -91,6 +119,8 @@ public class Input {
 	public void addHourElement(HourElement hourElement){
 		this.hourElements.add(hourElement);
 	}
+	
+	public Input(){}
 	
 	/**
 	 * Constructor

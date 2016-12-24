@@ -5,6 +5,9 @@ import com.github.aimind.exponentialschedule_api.core.ElementComponent;
 import com.github.aimind.exponentialschedule_api.core.HourElement;
 import com.github.aimind.exponentialschedule_api.enums.ConstraintTypeEnum;
 
+import exponentialschedule.webservices.interfaces.Input;
+import exponentialschedule.webservices.interfaces.Output;
+
 public class AppTest {
 
 	public static void main(String[] args) {
@@ -18,11 +21,12 @@ public class AppTest {
 		hourElement1.addComponent(element1);
 		
 		try{
-			Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "Test", "ffe24c9204d65518429aa701f3a6bdc5", "test", 10, 5);
+			Input input = new Input("http://localhost:8080/ExponentialScheduleWS/ExponentialScheduleWS", "test", "ffe24c9204d65518429aa701f3a6bdc5", "A1B2C3D4E5", 10, 5);
 			input.addHourDistribution(8);
 			input.addHourElement(hourElement1);
 		
 			Output schedules = input.GenerateSchedule();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
