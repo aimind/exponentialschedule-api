@@ -16,26 +16,24 @@ public class HourElement {
 	private List<ElementComponent> components;
 	
 	//Properties
-	@XmlElement(name="templateId")
 	public int getId() {
 		return id;
 	}
+	@XmlElement(name="templateId")
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	@XmlElement(name="name")
 	public String getName() {
 		return name;
 	}
+	@XmlElement(name="name")
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@XmlElement(name="components")
 	public List<ElementComponent> getComponents() {
 		return components;
 	}
+	@XmlElement(name="components")
 	public void setComponents(List<ElementComponent> components) {
 		this.components = components;
 	}
@@ -58,5 +56,7 @@ public class HourElement {
 		this.name = name;
 		this.components = new ArrayList<ElementComponent>();
 	}
+	
+	public HourElement(){}
 	
 }

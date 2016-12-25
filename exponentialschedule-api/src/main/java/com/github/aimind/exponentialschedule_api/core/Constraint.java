@@ -14,26 +14,25 @@ public class Constraint {
 	private ConstraintTypeEnum type;
 	
 	//Properties
-	@XmlElement(name="constraintPriority")
 	public int getPriority() {
 		return priority;
 	}
+	@XmlElement(name="constraintPriority")
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
 	
-	@XmlElement(name="value")
 	public int getValue() {
 		return value;
 	}
+	@XmlElement(name="value")
 	public void setValue(int value) {
 		this.value = value;
 	}
-	
-	@XmlElement(name="constraintType")
 	public ConstraintTypeEnum getType() {
 		return type;
 	}
+	@XmlElement(name="constraintType")
 	public void setType(ConstraintTypeEnum type) {
 		this.type = type;
 	}
@@ -50,4 +49,6 @@ public class Constraint {
 		this.type = type;
 	}
 
+	public Constraint(){}
+	
 }

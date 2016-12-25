@@ -13,22 +13,23 @@ public class Schedule {
 	private double rate;
 	
 	//Properties
-	@XmlElement(name="genotype")
 	public List<HourElement> getHours() {
 		return hours;
 	}
+	@XmlElement(name="genotype")
 	public void setHours(List<HourElement> hours) {
 		this.hours = hours;
 	}
 	
-	@XmlElement(name="phenotype")
 	public double getRate() {
 		return rate;
 	}
+	@XmlElement(name="phenotype")
 	public void setRate(double rate) {
 		this.rate = rate;
 	}
 	
 	
+	public Schedule(){}
 	
 }

@@ -15,26 +15,24 @@ public class ElementComponent {
 	private List<Constraint> constraints;
 	
 	//Properties
-	@XmlElement(name="id")
 	public int getId() {
 		return id;
 	}
+	@XmlElement(name="id")
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	@XmlElement(name="name")
 	public String getName() {
 		return name;
 	}
+	@XmlElement(name="name")
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@XmlElement(name="constraints")
 	public List<Constraint> getConstraints() {
 		return constraints;
 	}
+	@XmlElement(name="constraints")
 	public void setConstraints(List<Constraint> constraints) {
 		this.constraints = constraints;
 	}
@@ -58,5 +56,7 @@ public class ElementComponent {
 		this.name = name;
 		this.constraints = new ArrayList<Constraint>();
 	}
+	
+	public ElementComponent(){}
 
 }

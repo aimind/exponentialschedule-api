@@ -13,34 +13,30 @@ import com.github.aimind.exponentialschedule_api.core.*;
 public class Output {
 
 	//Attributes
+	@XmlElement(name="transactionId")
 	private int transactionId;
+	@XmlElement(name="bestIndividuals")
 	private List<Schedule> bestSchedules;
+	@XmlElement(name="individualRun")
 	private List<Integer> executionNumber;
+	@XmlElement(name="runTime")
 	private List<Integer> executionTime;
+	@XmlElement(name="exceptions")
 	private List<String> exceptions;
 	
 	//Properties
-	@XmlElement(name="transactionId")
 	public int getTransactionId() {
 		return transactionId;
 	}
-	
-	@XmlElement(name="bestIndividuals")
 	public List<Schedule> getBestSchedules() {
 		return bestSchedules;
 	}
-	
-	@XmlElement(name="individualRun")
 	public List<Integer> getExecutionNumber() {
 		return executionNumber;
 	}
-	
-	@XmlElement(name="runTime")
 	public List<Integer> getExecutionTime() {
 		return executionTime;
 	}
-	
-	@XmlElement(name="exceptions")
 	public List<String> getExceptions() {
 		return exceptions;
 	}	

@@ -40,66 +40,65 @@ public class Input {
 		this.url = url;
 	}
 	
-	@XmlElement(name="user")
 	public String getUser() {
 		return user;
 	}
+	@XmlElement(name="user")
 	public void setUser(String user) {
 		this.user = user;
 	}
 	
-	@XmlElement(name="password")
 	public String getPassword() {
 		return password;
 	}
+	@XmlElement(name="password")
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	
-	@XmlElement(name="iv")
 	public String getIv() {
 		return iv;
 	}
+	@XmlElement(name="iv")
 	public void setIv(String iv) {
 		this.iv = iv;
 	}
 	
-	@XmlElement(name="maxPriorityValue")
 	public int getMaxConstraintPriorityValue() {
 		return maxConstraintPriorityValue;
 	}
+	@XmlElement(name="maxPriorityValue")
 	public void setMaxConstraintPriorityValue(int maxConstraintPriorityValue) {
 		this.maxConstraintPriorityValue = maxConstraintPriorityValue;
 	}
 	
-	@XmlElement(name="numberOfGenes")
 	public int getNumberOfHours(){
 		return numberOfHours;
 	}
+	@XmlElement(name="numberOfGenes")
 	public void setNumberOfHours(int numberOfHours){
 		this.numberOfHours = numberOfHours;
 	}
 	
-	@XmlElement(name="numberOfSolutions")
 	public int getNumberOfSolutions() {
 		return numberOfSolutions;
 	}
+	@XmlElement(name="numberOfSolutions")
 	public void setNumberOfSolutions(int numberOfSolutions) {
 		this.numberOfSolutions = numberOfSolutions;
 	}
 	
-	@XmlElement(name="genesDistribution")
 	public List<Integer> getHoursDistribution() {
 		return hoursDistribution;
 	}
+	@XmlElement(name="genesDistribution")
 	public void setHoursDistribution(List<Integer> hoursDistribution) {
 		this.hoursDistribution = hoursDistribution;
 	}
-	
-	@XmlElement(name="templateGenes")
 	public List<HourElement> getHourElements(){
 		return hourElements;
 	}
+	@XmlElement(name="templateGenes")
 	public void setHourElements(List<HourElement> hourElements){
 		this.hourElements = hourElements;
 	}
@@ -147,6 +146,8 @@ public class Input {
 		//Encrypt the password
 		List<String> security = new ArrayList<String>();
 		try {
+			
+			password = SecurityService.encryptMD5Message(password);
 			security = SecurityService.encryptAESMessage(password, passphrase);
 			
 			//Sets the password encrypted and the iv
