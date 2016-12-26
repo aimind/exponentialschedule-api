@@ -31,21 +31,4 @@ public class SecurityServiceTest extends TestCase {
 		
 		assertEquals(message,message2);
 	}
-	
-	@Test
-	public void testEncryptMD5Message(){
-		
-		String message = "Test password";
-		String messageMatch = "ffe24c9204d65518429aa701f3a6bdc5";
-		String result = "";
-		
-		try{
-			result = SecurityService.encryptMD5Message(message);
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		assertEquals(result,messageMatch);
-		
-	}
 }

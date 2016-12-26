@@ -147,7 +147,6 @@ public class Input {
 		List<String> security = new ArrayList<String>();
 		try {
 			
-			password = SecurityService.encryptMD5Message(password);
 			security = SecurityService.encryptAESMessage(password, passphrase);
 			
 			//Sets the password encrypted and the iv
